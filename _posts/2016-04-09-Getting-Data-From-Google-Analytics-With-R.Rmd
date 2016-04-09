@@ -1,9 +1,9 @@
 ---
-title: "Getting Data From Google Analytics With R"
+title: "Downloading Data From Google Analytics With R"
 author: "Jeremy Yeo"
 date: "9 April 2016"
-output: html_document
-layout: post
+output: html_fragment
+published: false
 ---
 
 ```{r setup, include=FALSE}
