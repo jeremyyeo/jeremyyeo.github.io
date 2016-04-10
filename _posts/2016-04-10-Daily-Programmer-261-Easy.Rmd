@@ -1,8 +1,6 @@
 ---
 output: 
   html_document:
-    toc: true
-    toc_float: true
     code_folding: hide
 published: false
 ---
@@ -11,7 +9,9 @@ published: false
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-https://www.reddit.com/r/dailyprogrammer/comments/4dccix/20160404_challenge_261_easy_verifying_3x3_magic/
+Challenge 261 easy mode from reddit's daily programmer. Verifying a 3x3 magic square.
+
+[Challenge available here](https://www.reddit.com/r/dailyprogrammer/comments/4dccix/20160404_challenge_261_easy_verifying_3x3_magic/)
 
 #Description
 
