@@ -1,8 +1,5 @@
 ---
-title: "Downloading Data From Google Analytics With R"
-author: "Jeremy Yeo"
-date: "9 April 2016"
-output: html_fragment
+output: html_document
 published: false
 ---
 
@@ -10,22 +7,24 @@ published: false
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
+## Set up your credentials
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+Go to the developers console and create a new project if you don't already have one: https://console.developers.google.com/
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+There have been many packages built to access Google Analytics data. I recommend installing the RGA package:
 
-```{r cars}
-summary(cars)
+```{r install, eval=FALSE}
+install.packages("RGA")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+require(dygraphs)
+lungDeaths <- cbind(mdeaths, fdeaths)
+dygraph(lungDeaths)
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+-----
+
+```{r echo=FALSE}
+sessionInfo()
+```

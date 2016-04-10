@@ -1,0 +1,56 @@
+---
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    code_folding: hide
+published: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+https://www.reddit.com/r/dailyprogrammer/comments/4dccix/20160404_challenge_261_easy_verifying_3x3_magic/
+
+#Description
+
+A 3x3 magic square is a 3x3 grid of the numbers 1-9 such that each row, column, and major diagonal adds up to 15. Here's an example:
+
+    8 1 6
+    3 5 7
+    4 9 2
+
+The major diagonals in this example are 8 + 5 + 2 and 6 + 5 + 4. (Magic squares have appeared here on r/dailyprogrammer before, in [#65 [Difficult]](https://www.reddit.com/r/dailyprogrammer/comments/v3agk/6152012_challenge_65_difficult/) in 2012.)
+
+Write a function that, given a grid containing the numbers 1-9, determines whether it's a magic square. Use whatever format you want for the grid, such as a 2-dimensional array, or a 1-dimensional array of length 9, or a function that takes 9 arguments. You do not need to parse the grid from the program's input, but you can if you want to. You don't need to check that each of the 9 numbers appears in the grid: assume this to be true.
+
+**Example inputs/outputs**
+
+    [8, 1, 6, 3, 5, 7, 4, 9, 2] => true
+    [2, 7, 6, 9, 5, 1, 4, 3, 8] => true
+    [3, 5, 7, 8, 1, 6, 4, 9, 2] => false
+    [8, 1, 6, 7, 5, 3, 4, 9, 2] => false
+
+#Solution
+
+```{r, results = 'hold'}
+verifyMagicSquare <- function(...) {
+  # Convert multiple numbers passed as arguments to numeric.
+  x <- matrix(as.numeric(list(...)), nrow = 3, ncol = 3, byrow = T)
+  sumrows <- apply(x, 1, sum)
+  sumcols <- apply(x, 2, sum)
+  sumdiag1 <- sum(diag(x))
+  sumdiag2 <- sum(diag(x[nrow(x):1,]))
+  if (length(unique(sumrows+sumcols)) != 1 | sumdiag1 !=15 | sumdiag2 != 15) {
+    return(FALSE)
+  } else { 
+    return(TRUE)
+  }
+}
+
+verifyMagicSquare(8, 1, 6, 3, 5, 7, 4, 9, 2)
+verifyMagicSquare(2, 7, 6, 9, 5, 1, 4, 3, 8)
+verifyMagicSquare(3, 5, 7, 8, 1, 6, 4, 9, 2)
+verifyMagicSquare(8, 1, 6, 7, 5, 3, 4, 9, 2)
+```
