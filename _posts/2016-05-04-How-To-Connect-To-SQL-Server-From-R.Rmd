@@ -3,6 +3,7 @@ output:
   html_document:
     toc: true
     toc_float: true
+    number_sections: true
 published: false
 ---
 
@@ -22,7 +23,7 @@ If you don't see the loading message above, install the package from CRAN:
 install.packages("RODBC")
 ```
 
-### 1. Set up the connection
+# Set up the connection
 
 Assuming the machine you're on already has a System Data Source configured within the ODBC Data Source Administrator. This should be the case if the SQL Server uses Windows Authentication.
 
@@ -37,7 +38,7 @@ con <- odbcConnect("DatabaseName", uid = "user", pwd = "pass")
 ```
 
 
-### 2. Build your query
+# Build your query
 
 Insert your query into a string. Note that you can do more than just the `SELECT` keyword.
 
@@ -45,7 +46,7 @@ Insert your query into a string. Note that you can do more than just the `SELECT
 query <- "SELECT * FROM db.schema.tablename"
 ```
 
-### 3. Execute your query
+# Execute your query
 
 Execute your query with the `sqlQuery` function. You can save the results to an object so you can do stuff with it. If you don't the results will just be printed in the console for you.
 
@@ -56,7 +57,7 @@ sqlQuery(con, query)
 data <- sqlQuery(con, query)
 ```
 
-### 4. Close your connection
+# Close your connection
 
 Once you've retrieved the data you need, it is good practice to close the connection.
 
@@ -64,6 +65,6 @@ Once you've retrieved the data you need, it is good practice to close the connec
 close(con)
 ```
 
-### 5. Do stuff to your data
+# Do stuff to your data
 
 Congratulations, you can now do stuff to your data :)
