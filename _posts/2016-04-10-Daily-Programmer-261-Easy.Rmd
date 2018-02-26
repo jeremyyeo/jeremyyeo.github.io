@@ -3,6 +3,8 @@ output:
   html_document:
     code_folding: hide
 published: false
+title: Daily Programmer 261 (Easy / R)
+layout: post
 ---
 
 ```{r setup, include=FALSE}
