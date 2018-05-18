@@ -1,0 +1,56 @@
+---
+layout: page
+title: About / Contact
+permalink: /about-contact/
+menu: main
+---
+<div class="columns">
+    <div class="column is-8">
+        I am Senior Insights Analyst @ Xero. 
+    </div>
+    <div class="column is-4">
+    <p class="content">
+        If you want to get in touch with me, use the form below or just send me mail of the electronic kind.
+    </p>
+    <form action="https://formspree.io/jeremy@dotank.io" method="POST">
+        <div class="field is-horizontal">
+          <div class="field-body">
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input class="input" type="text" name="name" placeholder="Name">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-user"></i>
+                </span>
+              </p>
+            </div>
+            <div class="field">
+              <p class="control is-expanded has-icons-left">
+                <input class="input" type="email" name="_replyto" placeholder="Email">
+                <span class="icon is-small is-left">
+                  <i class="fas fa-envelope"></i>
+                </span>
+              </p>
+            </div>
+          </div>
+        </div>
+    
+        <div class="field">
+          <div class="control">
+            <textarea class="textarea" placeholder="How can we help?"></textarea>
+          </div>
+        </div>
+        <input type="hidden" name="_next" value="{{ "/thank-you/" | relative_url }}" />
+        <input type="text" name="_gotcha" style="display:none">
+        <input type="hidden" name="_subject" value="Enquiry sent via www.dotank.io">
+        <div class="field is-horizontal">
+          <div class="field-body">
+            <div class="field">
+              <div class="control">
+                <input class="button" type="submit" value="Send">
+              </div>
+            </div>
+          </div>
+        </div>
+    </form>
+    </div>
+</div>

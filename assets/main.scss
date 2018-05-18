@@ -1,0 +1,15 @@
+---
+---
+// Import the initial variables
+@import "sass/utilities/initial-variables";
+@import "sass/utilities/functions";
+
+// $navbar-height: 5rem;
+// $turquoise: #4166F5; 
+
+// Fix bulma aligning pre in figures to the center.
+figure pre {text-align: left;}
+
+// Finally import the rest of bulma
+@import "bulma";
+@import "syntax-highlighting";

@@ -1,0 +1,21 @@
+---
+layout: default
+---
+<div class="container">
+  {{ content }}
+  {% assign rows = site.posts.size | divided_by: 2.0 | ceil %}
+    {% for i in (1..rows) %}
+    {% assign offset = forloop.index0 | times: 2 %}
+    <div class="tile is-ancestor">
+      {% for post in site.posts limit:2 offset:offset %}
+        <div class="tile is-parent is-6">
+            <a class="tile is-child box" href="{{ post.url | relative_url }}">
+                <p class="title is-4">{{ post.title | escape }}</p>
+                <p class="subtitle is-6">{{ post.date | date: '%B %d, %Y' }}</p>
+                <p class="content">{{ post.content | strip_html | truncatewords: 30 }}</p>
+            </a>
+        </div>
+      {% endfor %}
+    </div>
+  {% endfor %}
+</div>

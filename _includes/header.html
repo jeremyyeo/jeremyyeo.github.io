@@ -1,0 +1,61 @@
+<nav class="navbar is-fixed-top is-transparent" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="{{site.url}}">
+            {{ site.title }}
+        </a>
+        {% assign default_paths = site.pages | map: "path" %}
+        {% assign page_paths = site.header_pages | default: default_paths %}
+        {% if page_paths %}
+            {% for path in page_paths %}
+            {% assign my_page = site.pages | where: "path", path | first %}
+                {% if my_page.menu == 'main' and my_page.title %}
+                <a class="navbar-item" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <div class="field is-grouped">
+                    {% if site.github_username %}
+                    <p class="control">
+                        <a class="button" href="https://github.com/{{site.github_username}}">
+                            <span class="icon"><i class="fab fa-github" aria-hidden="true"></i></span>
+                        </a>
+                    </p>
+                    {% endif %}                    
+                    {% if site.linkedin_username %}
+                    <p class="control">
+                        <a class="button" href="https://linkedin.com/in/{{site.linkedin_username}}">
+                            <span class="icon"><i class="fab fa-linkedin" aria-hidden="true"></i></span>
+                        </a>
+                    </p>
+                    {% endif %}
+                    {% if site.twitter_username %}
+                    <p class="control">
+                        <a class="button" href="https://twitter.com/{{site.twitter_username}}">
+                            <span class="icon"><i class="fab fa-twitter" aria-hidden="true"></i></span>
+                        </a>
+                    </p>
+                    <p class="control">
+                        <a class="button" href="{{ "/feed.xml" | relative_url }}">
+                            <span class="icon"><i class="fas fa-rss" aria-hidden="true"></i></span>
+                        </a>
+                    </p>
+                    {% endif %}
+                    {% if site.email %}
+                    <p class="control">
+                        <span class="button is-static">
+                            <span class="icon">
+                                <i class="fas fa-envelope" aria-hidden="true"></i>
+                            </span>
+                            <span>{{ site.email | escape }}</span>
+                        </span>
+                    </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
